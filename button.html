@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   
+        .mycontents{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+        .mycontents i{
+            position: absolute;
+            right: 30px;
+            top: 5px;
+            width: 20px;
+            height: 13px;
+        }
+        .mycontents i:before {
+            opacity: 0;
+            margin-right: 20px;
+            background: url(https://www.samyang.co.kr/resources/kr/global/images/main/main_sec01_bot_list_arrow_blue.svg) 50% 50% no-repeat;
+        }
+        .mycontents i:after {
+            background: url(https://www.samyang.co.kr/resources/kr/global/images/main/main_sec01_bot_list_arrow.svg) 50% 50% no-repeat;
+        }   
+        .mycontents i:before,
+        .mycontents i:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 0.2s, margin 0.2s;
+            display: block;
+            width: 20px;
+            height: 13px;
+            background-size: 100% 100%;
+        }
+        .mycontents:hover i:before {  
+            animation: arrowAnimationBefore 0.3s forwards 0.3s;
+        }
+        .mycontents:hover i:after {
+            animation: arrowAnimationAfter 0.3s forwards;
+        }
+        @keyframes arrowAnimationBefore {
+            from {
+            margin-right: 20px;
+            opacity: 0;
+            }
+            to {
+            margin-right: 0;
+            opacity: 1;
+            }
+        }
+        @keyframes arrowAnimationAfter {
+            from {
+            margin-right: 0;
+            opacity: 1;
+            }
+            to {
+            margin-right: -15px;
+            opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mycontents">
+        <i></i>
+    </div>
+</body>
+</html>
